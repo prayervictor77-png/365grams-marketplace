@@ -1710,6 +1710,42 @@ footer .brand-tagline {
             role="status"></div>
 
         </form>
+        
+<div class="form-group" id="buyerSignupSection">
+  <h2>Create a Buyer Account</h2>
+  <p>Register to shop on 365 GRAMS.</p>
+
+  <form id="buyer-signup-form">
+    <div class="form-group">
+      <label for="buyerFullName">Full name</label>
+      <input id="buyerFullName" name="full_name"
+        type="text" autocomplete="name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="buyerEmail">Email address</label>
+      <input id="buyerEmail" name="email"
+        type="email" autocomplete="email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="buyerPhone">Phone number</label>
+      <input id="buyerPhone" name="phone"
+        type="tel" autocomplete="tel" required>
+    </div>
+
+    <div class="form-group">
+      <label for="buyerPassword">Create password</label>
+      <input id="buyerPassword" name="password"
+        type="password" autocomplete="new-password"
+        minlength="8" required>
+    </div>
+
+    <button type="submit">Create Buyer Account</button>
+    <p id="signup-message" aria-live="polite"></p>
+  </form>
+</div>
+
       </div>
 
       <!-- PRODUCT UPLOAD -->
