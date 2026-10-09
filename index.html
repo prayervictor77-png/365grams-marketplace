@@ -1,28 +1,31 @@
-<!DOCTYPE html> g
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#116b45">
+<meta name="theme-color" content="#101b35">
 
-<title>365 GRAMS Marketplace | Shop Every Day</title>
-
-<meta name="description" content="Discover agricultural products, groceries, electronics, fashion and everyday essentials on 365 GRAMS Marketplace.">
+<title>365 GRAMS | One Marketplace. Everything You Need.</title>
 
 <style>
 :root {
-  --green: #116b45;
-  --dark: #123d2c;
-  --light: #f3f8f3;
-  --gold: #f4b942;
+  --navy: #101b35;
+  --navy2: #1a2c50;
+  --gold: #f6bd45;
+  --cream: #fffaf0;
   --white: #ffffff;
-  --text: #203329;
-  --muted: #6b7c72;
-  --border: #e0e9e1;
+  --text: #20283a;
+  --muted: #778096;
+  --border: #e8ebf2;
+  --green: #16845b;
+  --radius: 18px;
+  --shadow: 0 12px 35px rgba(16,27,53,.09);
 }
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -30,558 +33,1049 @@ html {
 }
 
 body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Arial, sans-serif;
   color: var(--text);
+  background: #f7f8fc;
+  overflow-x: hidden;
 }
 
-button, input, select {
+button, input, select, textarea {
   font: inherit;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 button {
   cursor: pointer;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+img {
+  max-width: 100%;
 }
+
+.container {
+  width: min(1200px, 92%);
+  margin: auto;
+}
+
+/* TOP ANNOUNCEMENT */
 
 .announcement {
-  background: var(--dark);
+  background: var(--navy);
   color: white;
-  padding: 11px 15px;
   text-align: center;
-  font-size: 13px;
+  padding: 9px 12px;
+  font-size: 12px;
+  letter-spacing: .35px;
 }
 
-.header {
-  padding: 18px 5%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
+.announcement strong {
+  color: var(--gold);
+}
+
+/* HEADER */
+
+header {
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 50;
   border-bottom: 1px solid var(--border);
 }
 
-.logo {
+.header-main {
+  min-height: 77px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  justify-content: space-between;
+}
+
+.brand {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: var(--green);
+  flex-shrink: 0;
 }
 
-.logo-icon {
-  width: 45px;
-  height: 45px;
-  border-radius: 12px;
-  background: var(--green);
-  color: white;
+.brand-symbol {
+  width: 46px;
+  height: 46px;
+  background: var(--navy);
+  border-radius: 14px;
   display: grid;
   place-items: center;
-  font-size: 23px;
-  font-weight: 900;
+  color: var(--gold);
+  font-size: 21px;
+  font-weight: 950;
+  transform: rotate(-3deg);
 }
 
-.logo h1 {
-  font-size: 23px;
-  margin: 0;
+.brand-name {
+  font-size: 24px;
   letter-spacing: -1px;
+  font-weight: 950;
+  color: var(--navy);
 }
 
-.logo small {
+.brand-name span {
+  color: #c88b16;
+}
+
+.brand-tagline {
   display: block;
-  font-size: 10px;
-  letter-spacing: 3px;
-  margin-top: 4px;
+  font-size: 9px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 2px;
 }
 
 .search {
-  display: flex;
   flex: 1;
-  max-width: 480px;
-  min-width: 180px;
+  max-width: 490px;
+  display: flex;
+  align-items: center;
+  background: #f3f5f9;
+  border: 1px solid #edf0f5;
+  border-radius: 13px;
+  padding: 5px 5px 5px 14px;
+}
+
+.search span {
+  font-size: 20px;
+  margin-right: 8px;
 }
 
 .search input {
+  border: none;
+  outline: none;
+  background: transparent;
   width: 100%;
   min-width: 0;
-  border: 1px solid var(--border);
-  padding: 13px;
-  border-radius: 8px 0 0 8px;
-  outline-color: var(--green);
+  padding: 10px 0;
+  font-size: 13px;
 }
 
 .search button {
+  background: var(--gold);
+  color: var(--navy);
   border: none;
-  background: var(--green);
-  color: white;
-  padding: 0 17px;
-  border-radius: 0 8px 8px 0;
-}
-
-.cart-button {
-  background: var(--light);
-  color: var(--green);
-  border: 1px solid var(--border);
+  padding: 12px 17px;
   border-radius: 9px;
-  padding: 13px;
-  font-weight: bold;
+  font-weight: 800;
+  font-size: 12px;
 }
 
-.nav {
+.header-actions {
   display: flex;
-  gap: 25px;
-  padding: 16px 5%;
-  overflow-x: auto;
-  white-space: nowrap;
-  border-bottom: 1px solid var(--border);
-  font-size: 14px;
+  align-items: center;
+  gap: 14px;
 }
 
-.nav a:hover {
-  color: var(--green);
+.header-link {
+  border: none;
+  background: transparent;
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.header-link span {
+  display: block;
+  font-size: 19px;
+  margin-bottom: 2px;
+}
+
+.sell-button {
+  background: var(--navy);
+  color: white;
+  padding: 13px 17px;
+  border-radius: 10px;
+  border: none;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.sell-button:hover,
+.primary-btn:hover {
+  background: #263e6c;
+}
+
+/* NAVIGATION */
+
+.nav-bar {
+  border-top: 1px solid #f1f2f6;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  min-height: 43px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.nav-inner::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-inner a {
+  font-size: 12px;
+  font-weight: 700;
+  color: #566078;
+  white-space: nowrap;
+}
+
+.nav-inner a:hover {
+  color: #bc8010;
+}
+
+/* HERO */
+
+.hero-wrap {
+  padding: 26px 0 16px;
 }
 
 .hero {
-  margin: 25px auto;
-  width: 90%;
-  padding: 55px 7%;
-  border-radius: 22px;
-  background: linear-gradient(120deg, #e8f5e9, #f8f7e9);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 30px;
+  background:
+    radial-gradient(circle at 86% 30%, rgba(246,189,69,.22), transparent 28%),
+    linear-gradient(115deg, #101b35 0%, #1c3157 65%, #263e69 100%);
+  color: white;
+  border-radius: 25px;
   overflow: hidden;
+  position: relative;
+  min-height: 375px;
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  align-items: center;
+  padding: 40px 5%;
 }
 
-.hero-content {
-  max-width: 580px;
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 50%;
+  right: 8%;
+  top: -120px;
 }
 
-.eyebrow {
-  color: var(--green);
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.hero h2 {
-  font-size: clamp(35px, 6vw, 65px);
-  line-height: 1.06;
-  margin: 15px 0;
-  color: var(--dark);
-  letter-spacing: -2px;
-}
-
-.hero p {
-  color: #56675b;
-  line-height: 1.8;
+.hero-copy {
+  position: relative;
+  z-index: 2;
   max-width: 490px;
 }
 
-.actions {
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.14);
+  padding: 9px 13px;
+  border-radius: 50px;
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.eyebrow i {
+  width: 7px;
+  height: 7px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+
+.hero h1 {
+  font-size: clamp(37px, 5vw, 63px);
+  line-height: 1.04;
+  letter-spacing: -2.8px;
+  font-weight: 950;
+  margin-bottom: 18px;
+}
+
+.hero h1 span {
+  color: var(--gold);
+}
+
+.hero-copy p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #d2daeb;
+  max-width: 420px;
+}
+
+.hero-actions {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
   margin-top: 25px;
 }
 
-.btn {
-  display: inline-block;
-  padding: 14px 20px;
-  border: 1px solid var(--green);
-  border-radius: 8px;
-  font-weight: bold;
+.primary-btn,
+.secondary-btn {
+  border: none;
+  border-radius: 11px;
+  padding: 15px 20px;
+  font-size: 12px;
+  font-weight: 850;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
 }
 
-.btn-primary {
-  background: var(--green);
+.primary-btn {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+.secondary-btn {
+  background: rgba(255,255,255,.09);
   color: white;
-}
-
-.btn-secondary {
-  color: var(--green);
-  background: white;
+  border: 1px solid rgba(255,255,255,.2);
 }
 
 .hero-art {
-  font-size: clamp(95px, 17vw, 190px);
-  line-height: 1;
-  text-align: center;
+  min-height: 290px;
+  position: relative;
+  display: grid;
+  place-items: center;
 }
 
-.hero-note {
-  color: var(--green);
-  font-size: 13px;
-  margin-top: 15px;
-  text-align: center;
-  font-weight: bold;
+.hero-orbit {
+  width: min(310px, 90%);
+  aspect-ratio: 1;
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  animation: orbit 18s linear infinite;
+  position: relative;
 }
+
+.hero-orbit::before {
+  content: "";
+  position: absolute;
+  inset: 22px;
+  border: 1px dashed rgba(255,255,255,.15);
+  border-radius: 50%;
+}
+
+.hero-logo {
+  width: 150px;
+  height: 150px;
+  background: var(--gold);
+  color: var(--navy);
+  border-radius: 38px;
+  display: grid;
+  place-items: center;
+  font-size: 51px;
+  font-weight: 1000;
+  box-shadow: 0 20px 65px rgba(0,0,0,.22);
+  transform: rotate(-8deg);
+}
+
+.float-card {
+  position: absolute;
+  background: white;
+  color: var(--navy);
+  border-radius: 13px;
+  padding: 12px 15px;
+  box-shadow: var(--shadow);
+  font-size: 11px;
+  font-weight: 800;
+  animation: float 4s ease-in-out infinite;
+}
+
+.float-card small {
+  display: block;
+  color: var(--muted);
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.float-card.one {
+  top: 17%;
+  right: 0;
+}
+
+.float-card.two {
+  bottom: 12%;
+  left: 0;
+  animation-delay: -2s;
+}
+
+@keyframes orbit {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%,100% { translate: 0 0; }
+  50% { translate: 0 -9px; }
+}
+
+/* BENEFITS */
+
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  margin: 20px 0 35px;
+  padding: 19px 8px;
+}
+
+.benefit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 10px;
+  border-right: 1px solid var(--border);
+}
+
+.benefit:last-child {
+  border-right: none;
+}
+
+.benefit-icon {
+  font-size: 25px;
+}
+
+.benefit strong {
+  display: block;
+  font-size: 11px;
+}
+
+.benefit small {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  margin-top: 4px;
+}
+
+/* SECTIONS */
 
 .section {
-  padding: 35px 5%;
+  padding: 23px 0 33px;
 }
 
 .section-heading {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: end;
   gap: 15px;
-  margin-bottom: 22px;
+  margin-bottom: 21px;
 }
 
 .section-heading h2 {
-  font-size: 25px;
-  margin: 0 0 8px;
-  color: var(--dark);
+  font-size: clamp(22px,3vw,29px);
+  color: var(--navy);
+  letter-spacing: -.8px;
+  margin-bottom: 6px;
 }
 
 .section-heading p {
-  margin: 0;
-  font-size: 14px;
   color: var(--muted);
+  font-size: 12px;
 }
 
 .text-link {
-  color: var(--green);
-  font-size: 14px;
-  font-weight: bold;
+  border: none;
+  background: transparent;
+  color: #9c690d;
+  font-weight: 800;
+  font-size: 12px;
+  white-space: nowrap;
 }
+
+/* CATEGORIES */
 
 .categories {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
+  grid-template-columns: repeat(8,1fr);
+  gap: 13px;
 }
 
 .category {
-  background: var(--light);
   border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 22px 10px;
+  background: white;
+  border-radius: 17px;
   text-align: center;
-  transition: transform .2s;
+  padding: 18px 7px;
+  transition: .25s;
+  cursor: pointer;
 }
 
 .category:hover {
-  transform: translateY(-3px);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+  border-color: var(--gold);
 }
 
 .category-icon {
-  font-size: 36px;
-  margin-bottom: 12px;
+  width: 52px;
+  height: 52px;
+  background: #f6f7fb;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+  margin: 0 auto 11px;
 }
 
 .category strong {
   display: block;
-  font-size: 14px;
+  font-size: 11px;
 }
 
-.products {
+/* MOVING PRODUCT STRIP */
+
+.ticker-shell {
+  background: var(--navy);
+  border-radius: 14px;
+  padding: 14px 0;
+  overflow: hidden;
+  margin: 14px 0 10px;
+}
+
+.ticker {
+  display: flex;
+  gap: 28px;
+  width: max-content;
+  animation: tickerMove 32s linear infinite;
+}
+
+.ticker:hover {
+  animation-play-state: paused;
+}
+
+.ticker span {
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.ticker b {
+  color: var(--gold);
+  margin-right: 9px;
+}
+
+@keyframes tickerMove {
+  to { transform: translateX(-50%); }
+}
+
+/* PRODUCT CARDS */
+
+.product-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5,minmax(0,1fr));
   gap: 17px;
 }
 
-.product {
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  overflow: hidden;
+.product-card {
   background: white;
-}
-
-.product-picture {
-  height: 145px;
-  background: var(--light);
-  display: grid;
-  place-items: center;
-  font-size: 65px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform .25s, box-shadow .25s;
+  min-width: 0;
   position: relative;
 }
 
-.product-tag {
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.product-image {
+  height: 180px;
+  background: #f0f2f8;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .45s;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.06);
+}
+
+.product-badge {
   position: absolute;
-  left: 10px;
   top: 10px;
-  background: white;
-  color: var(--green);
-  border-radius: 5px;
-  padding: 5px 7px;
-  font-size: 10px;
-  font-weight: bold;
+  left: 10px;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 9px;
+  font-weight: 900;
+  padding: 6px 8px;
+  border-radius: 6px;
 }
 
 .product-info {
-  padding: 15px;
+  padding: 13px;
 }
 
 .product-category {
   color: var(--muted);
-  font-size: 11px;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .7px;
+  margin-bottom: 7px;
 }
 
-.product h3 {
-  font-size: 14px;
-  min-height: 35px;
+.product-info h3 {
+  font-size: 13px;
   line-height: 1.4;
+  min-height: 36px;
+  margin-bottom: 7px;
+  overflow-wrap: anywhere;
 }
 
-.price {
-  font-weight: bold;
-  color: var(--green);
+.product-price {
+  color: var(--navy);
+  font-size: 16px;
+  font-weight: 950;
+}
+
+.product-meta {
+  color: var(--muted);
+  font-size: 10px;
+  margin-top: 6px;
+}
+
+.product-footer {
+  display: flex;
+  gap: 7px;
+  margin-top: 13px;
+}
+
+.buy-btn {
+  flex: 1;
+  background: var(--navy);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 5px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.heart-btn {
+  background: #f3f5f9;
+  border: none;
+  width: 35px;
+  border-radius: 8px;
   font-size: 17px;
 }
 
-.rating {
-  font-size: 12px;
-  color: #b17a13;
-  margin: 9px 0 13px;
+.heart-btn.active {
+  color: #d64156;
 }
 
-.add-button {
-  background: var(--green);
-  color: white;
-  border: none;
-  border-radius: 7px;
-  width: 100%;
-  padding: 11px 5px;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.add-button:hover {
-  background: var(--dark);
-}
+/* SELLER BANNER */
 
 .seller-banner {
-  margin: 30px 5%;
-  padding: 35px;
-  background: var(--dark);
-  color: white;
-  border-radius: 18px;
-  display: flex;
-  justify-content: space-between;
+  background: linear-gradient(110deg,#fff3d6,#fffaf0 58%,#f5e6c6);
+  border: 1px solid #f2dfb3;
+  border-radius: 23px;
+  padding: 36px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 25px;
   align-items: center;
-  gap: 20px;
+  margin: 22px 0 38px;
+}
+
+.seller-banner .label {
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: #9a6810;
+  margin-bottom: 12px;
 }
 
 .seller-banner h2 {
-  margin-top: 0;
-  font-size: 27px;
+  font-size: clamp(25px,3.5vw,36px);
+  color: var(--navy);
+  letter-spacing: -1.3px;
+  margin-bottom: 11px;
 }
 
 .seller-banner p {
-  color: #d3e6d8;
-  line-height: 1.7;
-  max-width: 600px;
+  color: #667086;
+  font-size: 13px;
+  line-height: 1.8;
+  max-width: 570px;
 }
 
-.seller-banner .btn {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: var(--dark);
+.seller-banner .primary-btn {
   white-space: nowrap;
 }
 
-.benefits {
+/* SERVICES */
+
+.services-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  padding: 30px 5% 45px;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 17px;
 }
 
-.benefit {
-  text-align: center;
+.service-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  padding: 21px;
+  transition: .25s;
 }
 
-.benefit-icon {
-  font-size: 30px;
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
 }
 
-.benefit h3 {
-  font-size: 14px;
+.service-icon {
+  font-size: 34px;
+  margin-bottom: 15px;
 }
 
-.benefit p {
+.service-card h3 {
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.service-card p {
   color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+  min-height: 39px;
+}
+
+.service-card button {
+  background: #f3f5fa;
+  color: var(--navy);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 11px;
+  font-weight: 800;
+  margin-top: 16px;
+}
+
+/* SELLER PORTAL */
+
+.seller-portal {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 28px;
+  margin: 30px 0 45px;
+  scroll-margin-top: 145px;
+}
+
+.portal-intro {
+  margin-bottom: 23px;
+}
+
+.portal-intro h2 {
+  color: var(--navy);
+  font-size: 28px;
+  letter-spacing: -.8px;
+  margin-bottom: 9px;
+}
+
+.portal-intro p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+  max-width: 680px;
+}
+
+.portal-grid {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 22px;
+  align-items: start;
+}
+
+.panel {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px;
+  min-width: 0;
+}
+
+.panel h3 {
+  color: var(--navy);
+  font-size: 18px;
+  margin-bottom: 7px;
+}
+
+.panel-subtitle {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+  margin-bottom: 19px;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  display: block;
+  color: #3e4960;
+  font-size: 11px;
+  font-weight: 800;
+  margin-bottom: 7px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  background: #fafbfe;
+  border: 1px solid #e3e7f0;
+  border-radius: 9px;
+  outline: none;
+  font-size: 12px;
+  color: var(--text);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #b68a30;
+  box-shadow: 0 0 0 3px rgba(246,189,69,.13);
+}
+
+.form-group textarea {
+  min-height: 85px;
+  resize: vertical;
+}
+
+.full-btn {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  background: var(--navy);
+  color: white;
+  padding: 14px;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.full-btn:hover {
+  background: #263e6c;
+}
+
+.status-message {
+  display: none;
+  padding: 12px;
+  background: #eaf8f0;
+  color: #146b46;
+  border-radius: 9px;
   font-size: 12px;
   line-height: 1.6;
+  margin-top: 13px;
 }
 
-.newsletter {
-  padding: 40px 5%;
-  background: var(--light);
+.status-message.show {
+  display: block;
+}
+
+.upload-zone {
+  border: 2px dashed #d8deeb;
+  background: #fafbfe;
+  border-radius: 13px;
+  min-height: 135px;
+  padding: 20px;
   text-align: center;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: .2s;
+  margin-bottom: 16px;
 }
 
-.newsletter h2 {
-  color: var(--dark);
+.upload-zone:hover {
+  border-color: #bd8b24;
+  background: #fffaf0;
 }
 
-.newsletter form {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  max-width: 470px;
-  margin: 20px auto 0;
+.upload-zone .upload-icon {
+  font-size: 29px;
+  margin-bottom: 7px;
 }
 
-.newsletter input {
-  flex: 1;
-  min-width: 0;
-  padding: 13px;
-  border: 1px solid var(--border);
-  border-radius: 7px;
+.upload-zone strong {
+  font-size: 12px;
+  display: block;
 }
 
-.newsletter button {
-  background: var(--green);
-  color: white;
-  border: 0;
-  padding: 12px 15px;
-  border-radius: 7px;
+.upload-zone small {
+  color: var(--muted);
+  font-size: 10px;
+  display: block;
+  margin-top: 7px;
 }
+
+.upload-preview {
+  display: none;
+  width: 100%;
+  max-height: 220px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  background: #f5f6fa;
+}
+
+.upload-preview.show {
+  display: block;
+}
+
+.seller-locked {
+  background: #fff7e7;
+  border: 1px solid #f0dfb8;
+  border-radius: 10px;
+  color: #795817;
+  padding: 12px;
+  font-size: 11px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+/* FOOTER */
 
 footer {
-  background: #102c20;
+  background: var(--navy);
   color: white;
-  padding: 35px 5% 20px;
+  padding: 43px 0 20px;
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 25px;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 30px;
+  padding-bottom: 30px;
 }
 
-footer h3 {
-  font-size: 15px;
+footer .brand-name {
+  color: white;
 }
 
-footer p, footer a {
-  color: #c4d5ca;
-  font-size: 13px;
+footer .brand-tagline {
+  color: #bdc7dc;
+}
+
+.footer-description {
+  font-size: 12px;
   line-height: 1.9;
+  color: #c4cce0;
+  margin-top: 15px;
+  max-width: 270px;
 }
 
-.footer-links a {
-  display: block;
-}
-
-.copyright {
-  border-top: 1px solid #365244;
-  margin-top: 25px;
-  padding-top: 18px;
+.footer-column h4 {
+  color: var(--gold);
   font-size: 12px;
-  color: #c4d5ca;
+  margin-bottom: 15px;
 }
 
-.empty-message {
-  grid-column: 1 / -1;
-  color: var(--muted);
-  padding: 25px 0;
-}
-
-.modal-backdrop {
-  position: fixed;
-  inset: 0;
-  background: #0008;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 18px;
-  z-index: 10;
-}
-
-.modal-backdrop.open {
-  display: flex;
-}
-
-.modal {
-  background: white;
-  color: var(--text);
-  border-radius: 15px;
-  padding: 24px;
-  max-width: 430px;
-  width: 100%;
-  max-height: 85vh;
-  overflow: auto;
-}
-
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-}
-
-.modal-header h2 {
-  margin: 0;
-  font-size: 22px;
-}
-
-.close-button {
-  border: 0;
-  background: var(--light);
-  padding: 9px 12px;
-  border-radius: 7px;
-}
-
-.cart-line {
-  padding: 13px 0;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.cart-line button {
-  background: none;
-  border: none;
-  color: #a33;
-  font-size: 12px;
-}
-
-.cart-total {
-  display: flex;
-  justify-content: space-between;
-  font-weight: bold;
-  margin: 20px 0;
-}
-
-.modal label {
+.footer-column a {
   display: block;
-  font-size: 13px;
-  margin: 14px 0 6px;
+  color: #c4cce0;
+  font-size: 11px;
+  margin-bottom: 12px;
 }
 
-.modal input, .modal select {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid var(--border);
-  border-radius: 7px;
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.13);
+  padding-top: 20px;
+  color: #c4cce0;
+  font-size: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
 }
+
+/* NOTICES */
 
 .notice {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%,20px);
+  background: var(--navy);
+  color: white;
+  padding: 14px 20px;
+  border-radius: 12px;
+  box-shadow: 0 12px 35px rgba(0,0,0,.2);
+  z-index: 100;
   font-size: 12px;
-  color: var(--muted);
-  line-height: 1.6;
+  opacity: 0;
+  pointer-events: none;
+  transition: .25s;
+  width: max-content;
+  max-width: 90%;
+  text-align: center;
 }
 
-@media (max-width: 760px) {
-  .header {
-    gap: 12px;
-    padding: 14px 4%;
+.notice.show {
+  opacity: 1;
+  transform: translate(-50%,0);
+}
+
+.empty-state {
+  display: none;
+  text-align: center;
+  background: white;
+  padding: 35px 15px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 15px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px) {
+  .header-main {
+    gap: 13px;
+    flex-wrap: wrap;
+    padding: 14px 0;
   }
 
-  .logo h1 {
-    font-size: 20px;
+  .brand {
+    flex: 1;
   }
 
   .search {
@@ -590,65 +1084,231 @@ footer p, footer a {
     max-width: none;
   }
 
-  .nav {
-    padding: 14px 4%;
-    gap: 20px;
-  }
-
-  .hero {
-    width: 92%;
-    padding: 35px 6%;
-    margin: 20px auto;
-  }
-
-  .hero-art {
-    display: none;
-  }
-
-  .hero h2 {
-    font-size: 42px;
-  }
-
-  .section {
-    padding: 25px 4%;
-  }
-
   .categories {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(4,1fr);
   }
 
-  .products {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 11px;
+  .product-grid {
+    grid-template-columns: repeat(3,minmax(0,1fr));
   }
 
-  .product-picture {
-    height: 125px;
-  }
-
-  .product-info {
-    padding: 11px;
-  }
-
-  .seller-banner {
-    margin: 20px 4%;
-    padding: 25px;
-    display: block;
-  }
-
-  .seller-banner .btn {
-    display: inline-block;
-    margin-top: 10px;
+  .services-grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
   }
 
   .benefits {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 25px 4%;
+    grid-template-columns: repeat(2,1fr);
+    gap: 17px 0;
+  }
+
+  .benefit:nth-child(2) {
+    border-right: none;
+  }
+
+  .portal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    grid-template-columns: 1.1fr .9fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media(max-width:600px) {
+  .container {
+    width: 94%;
+  }
+
+  .announcement {
+    font-size: 10px;
+  }
+
+  .brand-name {
+    font-size: 21px;
+  }
+
+  .brand-symbol {
+    width: 41px;
+    height: 41px;
+  }
+
+  .header-actions {
+    gap: 10px;
+  }
+
+  .header-link {
+    font-size: 10px;
+  }
+
+  .header-link span {
+    font-size: 17px;
+  }
+
+  .sell-button {
+    padding: 11px 12px;
+    font-size: 10px;
+  }
+
+  .nav-inner {
+    gap: 20px;
+  }
+
+  .hero-wrap {
+    padding-top: 15px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 29px 23px 15px;
+    border-radius: 20px;
+  }
+
+  .hero h1 {
+    font-size: 43px;
+    letter-spacing: -2px;
+  }
+
+  .hero-copy p {
+    font-size: 12px;
+  }
+
+  .hero-art {
+    min-height: 215px;
+    margin-top: 5px;
+  }
+
+  .hero-orbit {
+    width: 205px;
+  }
+
+  .hero-logo {
+    width: 105px;
+    height: 105px;
+    border-radius: 28px;
+    font-size: 36px;
+  }
+
+  .float-card {
+    padding: 9px 11px;
+    font-size: 9px;
+  }
+
+  .float-card.one {
+    right: 0;
+  }
+
+  .float-card.two {
+    left: 0;
+  }
+
+  .benefits {
+    padding: 15px 5px;
+  }
+
+  .benefit {
+    justify-content: flex-start;
+    padding: 5px 9px;
+    gap: 7px;
+  }
+
+  .benefit-icon {
+    font-size: 20px;
+  }
+
+  .benefit strong {
+    font-size: 9px;
+  }
+
+  .benefit small {
+    font-size: 8px;
+  }
+
+  .categories {
+    grid-template-columns: repeat(4,1fr);
+    gap: 8px;
+  }
+
+  .category {
+    padding: 12px 3px;
+    border-radius: 13px;
+  }
+
+  .category-icon {
+    width: 43px;
+    height: 43px;
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+
+  .category strong {
+    font-size: 9px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 11px;
+  }
+
+  .product-image {
+    height: 145px;
+  }
+
+  .product-info {
+    padding: 10px;
+  }
+
+  .product-info h3 {
+    font-size: 12px;
+  }
+
+  .product-price {
+    font-size: 14px;
+  }
+
+  .seller-banner {
+    padding: 24px 20px;
+    grid-template-columns: 1fr;
+  }
+
+  .seller-banner .primary-btn {
+    width: 100%;
+  }
+
+  .services-grid {
+    gap: 10px;
+  }
+
+  .service-card {
+    padding: 15px;
+  }
+
+  .service-card h3 {
+    font-size: 13px;
+  }
+
+  .service-card p {
+    font-size: 10px;
+  }
+
+  .seller-portal {
+    padding: 17px 12px;
+  }
+
+  .portal-intro h2 {
+    font-size: 23px;
+  }
+
+  .panel {
+    padding: 15px;
   }
 
   .footer-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 25px 18px;
   }
 
   .footer-grid > div:first-child {
@@ -656,18 +1316,16 @@ footer p, footer a {
   }
 
   .section-heading h2 {
-    font-size: 21px;
+    font-size: 22px;
   }
 }
 
-@media (max-width: 370px) {
-  .hero h2 {
-    font-size: 34px;
-  }
-
-  .cart-button {
-    padding: 10px;
-    font-size: 12px;
+@media(prefers-reduced-motion:reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
   }
 }
 </style>
@@ -676,571 +1334,980 @@ footer p, footer a {
 <body>
 
 <div class="announcement">
-  Welcome to 365 GRAMS Marketplace — discover great products every day.
+  WELCOME TO <strong>365 GRAMS</strong> &nbsp; | &nbsp;
+  One Marketplace. Everything You Need.
 </div>
 
-<header class="header">
-  <a class="logo" href="#" aria-label="365 GRAMS homepage">
-    <div class="logo-icon">365</div>
-    <div>
-      <h1>365 GRAMS</h1>
-      <small>MARKETPLACE</small>
+<header>
+  <div class="container header-main">
+
+    <a href="#" class="brand" aria-label="365 GRAMS homepage">
+      <div class="brand-symbol">365</div>
+      <div>
+        <div class="brand-name">365 <span>GRAMS</span></div>
+        <small class="brand-tagline">Shop. Sell. Discover.</small>
+      </div>
+    </a>
+
+    <form class="search" id="searchForm">
+      <span>⌕</span>
+      <input id="searchInput" type="search"
+        placeholder="Search products, categories or services..."
+        aria-label="Search marketplace">
+      <button type="submit">SEARCH</button>
+    </form>
+
+    <div class="header-actions">
+      <button class="header-link" id="accountButton">
+        <span>♙</span> Account
+      </button>
+
+      <button class="header-link" id="cartButton">
+        <span>🛒</span> Cart <b id="cartCount">0</b>
+      </button>
+
+      <button class="sell-button" onclick="goToSeller()">
+        + SELL WITH US
+      </button>
     </div>
-  </a>
+  </div>
 
-  <form class="search" id="searchForm">
-    <input id="searchInput" type="search"
-      placeholder="Search products, e.g. eggs, rice..."
-      aria-label="Search products">
-    <button type="submit">Search</button>
-  </form>
-
-  <button class="cart-button" id="openCart">
-    🛒 Cart (<span id="cartCount">0</span>)
-  </button>
+  <div class="nav-bar">
+    <nav class="container nav-inner">
+      <a href="#categories">All Categories</a>
+      <a href="#products">Popular Products</a>
+      <a href="#services">Find Services</a>
+      <a href="#seller">Become a Seller</a>
+      <a href="#products">Best Deals</a>
+      <a href="#footer">About 365 GRAMS</a>
+    </nav>
+  </div>
 </header>
 
-<nav class="nav">
-  <a href="#categories">All Categories</a>
-  <a href="#products">Today's Deals</a>
-  <a href="#categories" data-category="Agriculture">Agriculture</a>
-  <a href="#categories" data-category="Food & Groceries">Groceries</a>
-  <a href="#categories" data-category="Electronics">Electronics</a>
-  <a href="#categories" data-category="Home & Living">Home & Living</a>
-  <a href="#categories" data-category="Fashion">Fashion</a>
-  <a href="#seller">Sell on 365 GRAMS</a>
-</nav>
-
 <main>
-  <section class="hero">
-    <div class="hero-content">
-      <span class="eyebrow">Your market. Every day.</span>
-      <h2>Everything you need.<br>All in one place.</h2>
-      <p>
-        Shop from trusted sellers, discover everyday essentials,
-        and find great value across products for your home,
-        business, and farm.
-      </p>
 
-      <div class="actions">
-        <a class="btn btn-primary" href="#products">Start shopping →</a>
-        <a class="btn btn-secondary" href="#seller">Become a seller</a>
+  <div class="container hero-wrap">
+    <section class="hero">
+
+      <div class="hero-copy">
+        <div class="eyebrow">
+          <i></i> YOUR WORLD. ONE MARKETPLACE.
+        </div>
+
+        <h1>
+          Everything you need.<br>
+          <span>All in one place.</span>
+        </h1>
+
+        <p>
+          Discover amazing products, shop from different sellers,
+          and connect with trusted service providers.
+          Your next great find starts here.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#products" class="primary-btn">
+            Explore Marketplace ↗
+          </a>
+
+          <button class="secondary-btn" onclick="goToSeller()">
+            Start Selling →
+          </button>
+        </div>
       </div>
-    </div>
 
-    <div>
-      <div class="hero-art">🛍️</div>
-      <div class="hero-note">✨ Great finds, every day</div>
-    </div>
-  </section>
+      <div class="hero-art">
+        <div class="hero-orbit">
+          <div class="hero-logo">365</div>
+        </div>
 
-  <section class="section" id="categories">
+        <div class="float-card one">
+          ✨ Great finds await
+          <small>Products for everyday life</small>
+        </div>
+
+        <div class="float-card two">
+          🛍️ Shop & discover
+          <small>Your marketplace starts here</small>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="benefits">
+      <div class="benefit">
+        <div class="benefit-icon">🛍️</div>
+        <div>
+          <strong>Endless Choices</strong>
+          <small>Explore many categories</small>
+        </div>
+      </div>
+
+      <div class="benefit">
+        <div class="benefit-icon">🏪</div>
+        <div>
+          <strong>Seller Opportunities</strong>
+          <small>Showcase your business</small>
+        </div>
+      </div>
+
+      <div class="benefit">
+        <div class="benefit-icon">🧰</div>
+        <div>
+          <strong>Useful Services</strong>
+          <small>Find skilled professionals</small>
+        </div>
+      </div>
+
+      <div class="benefit">
+        <div class="benefit-icon">📱</div>
+        <div>
+          <strong>Mobile Friendly</strong>
+          <small>Shop from your phone</small>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="container section" id="categories">
     <div class="section-heading">
       <div>
-        <h2>Shop by category</h2>
-        <p>Find what you're looking for, faster.</p>
+        <h2>Explore Categories</h2>
+        <p>Whatever you are looking for, start here.</p>
       </div>
-      <a class="text-link" href="#products">Explore all →</a>
+      <button class="text-link" onclick="clearSearch()">
+        View everything →
+      </button>
     </div>
 
     <div class="categories">
-      <a class="category" href="#products" data-category="Agriculture">
-        <div class="category-icon">🌾</div>
-        <strong>Agriculture</strong>
-      </a>
-
-      <a class="category" href="#products" data-category="Food & Groceries">
-        <div class="category-icon">🥬</div>
-        <strong>Food & Groceries</strong>
-      </a>
-
-      <a class="category" href="#products" data-category="Electronics">
+      <button class="category" data-category="Electronics">
         <div class="category-icon">📱</div>
         <strong>Electronics</strong>
-      </a>
+      </button>
 
-      <a class="category" href="#products" data-category="Fashion">
-        <div class="category-icon">👟</div>
+      <button class="category" data-category="Fashion">
+        <div class="category-icon">👗</div>
         <strong>Fashion</strong>
-      </a>
+      </button>
 
-      <a class="category" href="#products" data-category="Home & Living">
-        <div class="category-icon">🏠</div>
+      <button class="category" data-category="Home">
+        <div class="category-icon">🛋️</div>
         <strong>Home & Living</strong>
-      </a>
+      </button>
 
-      <a class="category" href="#products" data-category="Beauty & Care">
-        <div class="category-icon">🧴</div>
-        <strong>Beauty & Care</strong>
-      </a>
+      <button class="category" data-category="Groceries">
+        <div class="category-icon">🥑</div>
+        <strong>Groceries</strong>
+      </button>
 
-      <a class="category" href="#products" data-category="Farm Equipment">
-        <div class="category-icon">🚜</div>
-        <strong>Farm Equipment</strong>
-      </a>
+      <button class="category" data-category="Beauty">
+        <div class="category-icon">✨</div>
+        <strong>Beauty</strong>
+      </button>
 
-      <a class="category" href="#products" data-category="Services">
-        <div class="category-icon">🧰</div>
-        <strong>Services</strong>
-      </a>
+      <button class="category" data-category="Agriculture">
+        <div class="category-icon">🌱</div>
+        <strong>Agriculture</strong>
+      </button>
+
+      <button class="category" data-category="Accessories">
+        <div class="category-icon">⌚</div>
+        <strong>Accessories</strong>
+      </button>
+
+      <button class="category" data-category="Sports">
+        <div class="category-icon">⚽</div>
+        <strong>Sports & More</strong>
+      </button>
     </div>
   </section>
 
-  <section class="section" id="products">
-    <div class="section-heading">
-      <div>
-        <h2 id="productHeading">Popular picks</h2>
-        <p>A little inspiration for your next purchase.</p>
+  <div class="container">
+    <div class="ticker-shell">
+      <div class="ticker" id="ticker">
+        <span><b>✦</b> SHOP SMART</span>
+        <span><b>✦</b> DISCOVER NEW FINDS</span>
+        <span><b>✦</b> SUPPORT BUSINESSES</span>
+        <span><b>✦</b> FIND SERVICES</span>
+        <span><b>✦</b> SELL WITH 365 GRAMS</span>
+        <span><b>✦</b> SHOP SMART</span>
+        <span><b>✦</b> DISCOVER NEW FINDS</span>
+        <span><b>✦</b> SUPPORT BUSINESSES</span>
+        <span><b>✦</b> FIND SERVICES</span>
+        <span><b>✦</b> SELL WITH 365 GRAMS</span>
       </div>
-      <button class="text-link" id="showAll"
-        style="background:none;border:none">View all products →</button>
-    </div>
-
-    <div class="products" id="productGrid"></div>
-    <p class="notice" style="margin-top:20px">
-      Demo products and prices are illustrative. Real seller listings
-      will be connected when the marketplace database is built.
-    </p>
-  </section>
-
-  <section class="seller-banner" id="seller">
-    <div>
-      <h2>🏪 Grow your business with us</h2>
-      <p>
-        Put your products in front of more customers with a marketplace
-        built for sellers, farmers, and growing businesses.
-      </p>
-    </div>
-    <a class="btn" href="#sellerForm">Start selling on 365 GRAMS →</a>
-  </section>
-
-  <section class="section">
-    <div class="section-heading">
-      <div>
-        <h2>Made for agriculture, open to everyone</h2>
-        <p>From farm produce and inputs to everyday shopping.</p>
-      </div>
-    </div>
-    <a class="btn btn-secondary" href="#products"
-      data-category="Agriculture">Explore agriculture →</a>
-  </section>
-
-  <section class="benefits">
-    <div class="benefit">
-      <div class="benefit-icon">🔎</div>
-      <h3>Discover more</h3>
-      <p>Products across categories.</p>
-    </div>
-    <div class="benefit">
-      <div class="benefit-icon">🤝</div>
-      <h3>Seller connections</h3>
-      <p>Helping buyers find sellers.</p>
-    </div>
-    <div class="benefit">
-      <div class="benefit-icon">📦</div>
-      <h3>Order-ready experience</h3>
-      <p>Designed for easy shopping.</p>
-    </div>
-    <div class="benefit">
-      <div class="benefit-icon">📱</div>
-      <h3>Mobile friendly</h3>
-      <p>Shop on the go.</p>
-    </div>
-  </section>
-
-  <section class="newsletter">
-    <h2>Good finds, delivered to your inbox.</h2>
-    <p>Get marketplace news, seller stories, and product highlights.</p>
-
-    <form id="newsletterForm">
-      <input type="email" required placeholder="Enter your email"
-        aria-label="Email address">
-      <button type="submit">Sign me up</button>
-    </form>
-    <p id="newsletterMessage" class="notice" aria-live="polite"></p>
-  </section>
-</main>
-
-<footer>
-  <div class="footer-grid">
-    <div>
-      <div class="logo" style="color:white">
-        <div class="logo-icon" style="background:#f4b942;color:#123d2c">
-          365
-        </div>
-        <div>
-          <h1>365 GRAMS</h1>
-          <small>MARKETPLACE</small>
-        </div>
-      </div>
-      <p>
-        Everything you need. Every day.<br>
-        A marketplace concept connecting shoppers and sellers across Nigeria.
-      </p>
-    </div>
-
-    <div class="footer-links">
-      <h3>Shop</h3>
-      <a href="#categories">All categories</a>
-      <a href="#products">Popular picks</a>
-      <a href="#products" data-category="Agriculture">Agriculture</a>
-    </div>
-
-    <div class="footer-links">
-      <h3>Sell with us</h3>
-      <a href="#seller">Become a seller</a>
-      <a href="#seller">Seller benefits</a>
-      <a href="#seller">Seller support</a>
     </div>
   </div>
 
-  <div class="copyright">
-    © <span id="year"></span> 365 GRAMS Marketplace.
-    Demo marketplace — sample listings are illustrative.
+  <section class="container section" id="products">
+    <div class="section-heading">
+      <div>
+        <h2 id="productsHeading">Trending on 365 GRAMS ✨</h2>
+        <p>Explore our sample collection of everyday favourites.</p>
+      </div>
+      <button class="text-link" onclick="clearSearch()">
+        Show all →
+      </button>
+    </div>
+
+    <div class="product-grid" id="productGrid"></div>
+
+    <div class="empty-state" id="emptyState">
+      No matching products found. Try another search or category.
+      <br><br>
+      <button class="primary-btn" onclick="clearSearch()">
+        Show all products
+      </button>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="seller-banner">
+      <div>
+        <div class="label">YOUR BUSINESS DESERVES TO BE SEEN</div>
+        <h2>Have something to sell?</h2>
+        <p>
+          Bring your business to 365 GRAMS. Showcase your products,
+          upload your photos, and get your business ready for a wider
+          audience. Start with our seller registration demo.
+        </p>
+      </div>
+
+      <button class="primary-btn" onclick="goToSeller()">
+        Become a Seller ↗
+      </button>
+    </div>
+  </section>
+
+  <section class="container section" id="services">
+    <div class="section-heading">
+      <div>
+        <h2>Services Marketplace 🧰</h2>
+        <p>Discover the people who can help you get things done.</p>
+      </div>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🔧</div>
+        <h3>Repairs & Mechanics</h3>
+        <p>Discover repair professionals and skilled technicians.</p>
+        <button onclick="serviceSearch('Repairs and Mechanics')">
+          Explore Services →
+        </button>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🏠</div>
+        <h3>Home Services</h3>
+        <p>Find cleaners, plumbers, electricians and more.</p>
+        <button onclick="serviceSearch('Home Services')">
+          Explore Services →
+        </button>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">💻</div>
+        <h3>Digital Services</h3>
+        <p>Connect with designers, developers and digital experts.</p>
+        <button onclick="serviceSearch('Digital Services')">
+          Explore Services →
+        </button>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🚚</div>
+        <h3>Delivery & Logistics</h3>
+        <p>Discover delivery and logistics service providers.</p>
+        <button onclick="serviceSearch('Delivery and Logistics')">
+          Explore Services →
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="container seller-portal" id="seller">
+
+    <div class="portal-intro">
+      <div class="eyebrow" style="background:#f6f0e2;color:#765313;border-color:#efe0bd;">
+        <i style="background:#c58d20;"></i> SELLER CENTRE
+      </div>
+
+      <h2>Build your business on 365 GRAMS.</h2>
+
+      <p>
+        Register your shop, tell customers about your business, and
+        add products with pictures and prices. This demonstration
+        stores your seller information and listings in this browser.
+      </p>
+    </div>
+
+    <div class="portal-grid">
+
+      <!-- SELLER REGISTRATION -->
+
+      <div class="panel">
+        <h3>① Create your seller profile</h3>
+        <p class="panel-subtitle">
+          Enter your details to create a demo seller profile.
+        </p>
+
+        <form id="sellerForm">
+
+          <div class="form-group">
+            <label for="sellerName">Full name</label>
+            <input id="sellerName" name="sellerName"
+              type="text" placeholder="Your full name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="shopName">Business / shop name</label>
+            <input id="shopName" name="shopName"
+              type="text" placeholder="e.g. Grams Fashion Store" required>
+          </div>
+
+          <div class="form-group">
+            <label for="sellerEmail">Email address</label>
+            <input id="sellerEmail" name="sellerEmail"
+              type="email" placeholder="you@example.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="sellerPhone">Phone number</label>
+            <input id="sellerPhone" name="sellerPhone"
+              type="tel" placeholder="Your contact number" required>
+          </div>
+
+          <div class="form-group">
+            <label for="sellerLocation">Business location</label>
+            <input id="sellerLocation" name="sellerLocation"
+              type="text" placeholder="e.g. Aba, Abia State" required>
+          </div>
+
+          <div class="form-group">
+            <label for="sellerType">What do you offer?</label>
+            <select id="sellerType" name="sellerType" required>
+              <option value="">Select business type</option>
+              <option>Electronics</option>
+              <option>Fashion</option>
+              <option>Groceries</option>
+              <option>Agriculture</option>
+              <option>Home & Living</option>
+              <option>Beauty</option>
+              <option>Accessories</option>
+              <option>Services</option>
+              <option>Multiple Categories</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <button class="full-btn" type="submit">
+            Create Demo Seller Profile →
+          </button>
+
+          <div class="status-message" id="sellerStatus"
+            role="status"></div>
+
+        </form>
+      </div>
+
+      <!-- PRODUCT UPLOAD -->
+
+      <div class="panel">
+        <h3>② Upload your products</h3>
+        <p class="panel-subtitle">
+          Add a product name, category, price, description and image.
+        </p>
+
+        <div class="seller-locked" id="sellerLocked">
+          🔒 Complete seller registration first to unlock product
+          uploads in this demo.
+        </div>
+
+        <form id="productForm">
+
+          <div class="form-group">
+            <label for="productName">Product name</label>
+            <input id="productName" type="text"
+              placeholder="e.g. Premium wireless headphones" required>
+          </div>
+
+          <div class="form-group">
+            <label for="productCategory">Product category</label>
+            <select id="productCategory" required>
+              <option value="">Choose a category</option>
+              <option>Electronics</option>
+              <option>Fashion</option>
+              <option>Home</option>
+              <option>Groceries</option>
+              <option>Beauty</option>
+              <option>Agriculture</option>
+              <option>Accessories</option>
+              <option>Sports</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="productPrice">Price in Nigerian naira (₦)</label>
+            <input id="productPrice" type="number"
+              min="1" step="1" placeholder="e.g. 25000" required>
+          </div>
+
+          <div class="form-group">
+            <label for="productDescription">Product description</label>
+            <textarea id="productDescription"
+              placeholder="Describe your product..." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Product image</label>
+
+            <label class="upload-zone" for="productImage">
+              <div>
+                <div class="upload-icon">📸</div>
+                <strong>Tap to select a product photo</strong>
+                <small>Choose an image from your phone.</small>
+              </div>
+            </label>
+
+            <input id="productImage" type="file"
+              accept="image/*" hidden>
+
+            <img id="imagePreview" class="upload-preview" alt="Selected product preview">
+          </div>
+
+          <button class="full-btn" type="submit">
+            + Add Product to Marketplace
+          </button>
+
+          <div class="status-message" id="productStatus"
+            role="status"></div>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer id="footer">
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div>
+        <a href="#" class="brand">
+          <div class="brand-symbol">365</div>
+          <div>
+            <div class="brand-name">365 <span>GRAMS</span></div>
+            <small class="brand-tagline">Shop. Sell. Discover.</small>
+          </div>
+        </a>
+
+        <p class="footer-description">
+          One marketplace for products, services and business
+          opportunities. Discover more with 365 GRAMS.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h4>SHOP</h4>
+        <a href="#categories">All Categories</a>
+        <a href="#products">Trending Products</a>
+        <a href="#services">Find Services</a>
+        <a href="#products">New Arrivals</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>SELL WITH US</h4>
+        <a href="#seller">Register Your Shop</a>
+        <a href="#seller">Upload Products</a>
+        <a href="#seller">Seller Centre</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>365 GRAMS</h4>
+        <a href="#footer">About Us</a>
+        <a href="#footer">Contact</a>
+        <a href="#footer">Privacy Policy</a>
+        <a href="#footer">Terms & Conditions</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> 365 GRAMS. All rights reserved.</span>
+      <span>One Marketplace. Everything You Need.</span>
+    </div>
+
   </div>
 </footer>
 
-<div class="modal-backdrop" id="cartModal">
-  <div class="modal">
-    <div class="modal-header">
-      <h2>Your shopping cart</h2>
-      <button class="close-button" id="closeCart">Close ✕</button>
-    </div>
-
-    <div id="cartItems"></div>
-
-    <div class="cart-total">
-      <span>Total</span>
-      <span id="cartTotal">₦0</span>
-    </div>
-
-    <p class="notice">
-      This prototype does not yet process payments or send orders to sellers.
-    </p>
-
-    <button class="btn btn-primary" style="width:100%"
-      id="checkoutButton">Continue</button>
-  </div>
-</div>
-
-<div class="modal-backdrop" id="sellerModal">
-  <div class="modal">
-    <div class="modal-header">
-      <h2>Interested in selling?</h2>
-      <button class="close-button" id="closeSeller">Close ✕</button>
-    </div>
-
-    <form id="sellerForm">
-      <label for="sellerName">Your name or business name</label>
-      <input id="sellerName" required placeholder="Enter your name">
-
-      <label for="sellerEmail">Email address</label>
-      <input id="sellerEmail" type="email" required placeholder="you@example.com">
-
-      <label for="sellerCategory">What do you want to sell?</label>
-      <select id="sellerCategory" required>
-        <option value="">Select a category</option>
-        <option>Agriculture</option>
-        <option>Food & Groceries</option>
-        <option>Electronics</option>
-        <option>Fashion</option>
-        <option>Home & Living</option>
-        <option>Beauty & Care</option>
-        <option>Farm Equipment</option>
-        <option>Services</option>
-        <option>Other</option>
-      </select>
-
-      <p class="notice">
-        This demo form does not transmit or save applications.
-        Seller registration will be connected to a secure database later.
-      </p>
-
-      <button class="btn btn-primary" type="submit"
-        style="width:100%">Submit interest</button>
-    </form>
-    <p id="sellerMessage" class="notice"></p>
-  </div>
-</div>
+<div class="notice" id="notice" role="status"></div>
 
 <script>
-const products = [
+const $ = (selector) => document.querySelector(selector);
+
+const sampleProducts = [
   {
-    id: 1,
-    name: "Fresh Farm Eggs",
-    category: "Agriculture",
-    detail: "Local farm produce",
-    price: 4500,
-    icon: "🥚",
-    rating: "4.8",
-    tag: "Farm fresh"
-  },
-  {
-    id: 2,
-    name: "Premium Rice — 5kg",
-    category: "Food & Groceries",
-    detail: "Pantry essentials",
-    price: 8900,
-    icon: "🌾",
-    rating: "4.7",
-    tag: "Everyday essential"
-  },
-  {
-    id: 3,
-    name: "Wireless Headphones",
+    id: "sample-1",
+    name: "Wireless Bluetooth Headphones",
     category: "Electronics",
-    detail: "Audio accessories",
-    price: 12500,
-    icon: "🎧",
-    rating: "4.6",
-    tag: "Popular"
+    price: 18500,
+    description: "Wireless headphones for music and everyday listening.",
+    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=80",
+    badge: "POPULAR",
+    seller: "365 GRAMS Demo Store"
   },
   {
-    id: 4,
-    name: "Non-stick Cookware Set",
-    category: "Home & Living",
-    detail: "Kitchen essentials",
-    price: 18000,
-    icon: "🍳",
-    rating: "4.9",
-    tag: "Popular"
-  },
-  {
-    id: 5,
-    name: "Vegetable Seed Pack",
-    category: "Agriculture",
-    detail: "Seeds and planting",
-    price: 2200,
-    icon: "🌱",
-    rating: "4.8",
-    tag: "Grow more"
-  },
-  {
-    id: 6,
-    name: "Everyday Sneakers",
+    id: "sample-2",
+    name: "Classic Everyday Sneakers",
     category: "Fashion",
-    detail: "Footwear",
-    price: 15000,
-    icon: "👟",
-    rating: "4.5",
-    tag: "Everyday style"
+    price: 27500,
+    description: "Versatile sneakers for everyday wear.",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80",
+    badge: "TRENDING",
+    seller: "365 GRAMS Demo Store"
   },
   {
-    id: 7,
-    name: "Body Care Essentials",
-    category: "Beauty & Care",
-    detail: "Personal care",
-    price: 6800,
-    icon: "🧴",
-    rating: "4.7",
-    tag: "Self care"
+    id: "sample-3",
+    name: "Modern Wristwatch",
+    category: "Accessories",
+    price: 22000,
+    description: "A stylish watch for everyday outfits.",
+    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=80",
+    badge: "NEW FIND",
+    seller: "365 GRAMS Demo Store"
   },
   {
-    id: 8,
-    name: "Farm Tool Starter Kit",
-    category: "Farm Equipment",
-    detail: "Farming tools",
-    price: 9500,
-    icon: "🛠️",
-    rating: "4.6",
-    tag: "Farm essentials"
+    id: "sample-4",
+    name: "Premium Skincare Essentials",
+    category: "Beauty",
+    price: 12500,
+    description: "A sample skincare product collection.",
+    image: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=700&q=80",
+    badge: "POPULAR",
+    seller: "365 GRAMS Demo Store"
+  },
+  {
+    id: "sample-5",
+    name: "Contemporary Home Chair",
+    category: "Home",
+    price: 65000,
+    description: "Contemporary furniture for modern living spaces.",
+    image: "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=700&q=80",
+    badge: "HOME PICK",
+    seller: "365 GRAMS Demo Store"
+  },
+  {
+    id: "sample-6",
+    name: "Fresh Farm Produce Basket",
+    category: "Agriculture",
+    price: 18000,
+    description: "A sample listing representing fresh farm produce.",
+    image: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=700&q=80",
+    badge: "FRESH PICK",
+    seller: "365 GRAMS Demo Store"
+  },
+  {
+    id: "sample-7",
+    name: "Elegant Everyday Handbag",
+    category: "Fashion",
+    price: 32000,
+    description: "A versatile bag for everyday use.",
+    image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=700&q=80",
+    badge: "TRENDING",
+    seller: "365 GRAMS Demo Store"
+  },
+  {
+    id: "sample-8",
+    name: "Portable Smart Speaker",
+    category: "Electronics",
+    price: 24500,
+    description: "A compact speaker for your favourite music.",
+    image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=700&q=80",
+    badge: "POPULAR",
+    seller: "365 GRAMS Demo Store"
+  },
+  {
+    id: "sample-9",
+    name: "Minimal Desk Lamp",
+    category: "Home",
+    price: 14500,
+    description: "A modern lamp for a desk or bedside table.",
+    image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=700&q=80",
+    badge: "HOME PICK",
+    seller: "365 GRAMS Demo Store"
+  },
+  {
+    id: "sample-10",
+    name: "Sports Training Equipment",
+    category: "Sports",
+    price: 21000,
+    description: "Sample equipment for fitness and training.",
+    image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=700&q=80",
+    badge: "ACTIVE",
+    seller: "365 GRAMS Demo Store"
   }
 ];
 
-const cart = {};
+let products = [...sampleProducts];
+let activeQuery = "";
 let activeCategory = "";
-let activeSearch = "";
+let cart = [];
+let selectedImage = "";
+let sellerProfile = null;
 
-const naira = amount =>
-  "₦" + amount.toLocaleString("en-NG");
+try {
+  const savedProducts = JSON.parse(
+    localStorage.getItem("365grams_products") || "[]"
+  );
 
-function renderProducts() {
-  const grid = document.getElementById("productGrid");
-
-  const filtered = products.filter(product => {
-    const matchesCategory =
-      !activeCategory || product.category === activeCategory;
-
-    const text = (
-      product.name + " " +
-      product.category + " " +
-      product.detail
-    ).toLowerCase();
-
-    const matchesSearch = text.includes(activeSearch.toLowerCase());
-
-    return matchesCategory && matchesSearch;
-  });
-
-  document.getElementById("productHeading").textContent =
-    activeCategory || activeSearch ? "Search results" : "Popular picks";
-
-  if (!filtered.length) {
-    grid.innerHTML =
-      '<p class="empty-message">No matching demo products found. Try another search.</p>';
-    return;
+  if (Array.isArray(savedProducts)) {
+    products = [
+      ...savedProducts,
+      ...sampleProducts.filter(p =>
+        !savedProducts.some(saved => saved.id === p.id)
+      )
+    ];
   }
 
+  sellerProfile = JSON.parse(
+    localStorage.getItem("365grams_seller") || "null"
+  );
+} catch (error) {
+  console.warn("Browser storage could not be loaded.", error);
+}
+
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char]);
+}
+
+function formatPrice(value) {
+  return "₦" + Number(value).toLocaleString("en-NG");
+}
+
+function saveProducts() {
+  try {
+    const userProducts = products.filter(p => !String(p.id).startsWith("sample-"));
+    localStorage.setItem("365grams_products", JSON.stringify(userProducts));
+  } catch (error) {
+    showNotice("Browser storage is full. Try a smaller product image.");
+  }
+}
+
+function showNotice(message) {
+  const notice = $("#notice");
+  notice.textContent = message;
+  notice.classList.add("show");
+
+  clearTimeout(showNotice.timer);
+  showNotice.timer = setTimeout(() => {
+    notice.classList.remove("show");
+  }, 3200);
+}
+
+function renderProducts() {
+  const grid = $("#productGrid");
+  const empty = $("#emptyState");
+
+  const filtered = products.filter(product => {
+    const text = [
+      product.name,
+      product.category,
+      product.description,
+      product.seller
+    ].join(" ").toLowerCase();
+
+    const matchesQuery = !activeQuery || text.includes(activeQuery);
+    const matchesCategory = !activeCategory ||
+      product.category.toLowerCase() === activeCategory.toLowerCase();
+
+    return matchesQuery && matchesCategory;
+  });
+
   grid.innerHTML = filtered.map(product => `
-    <article class="product">
-      <div class="product-picture">
-        <span class="product-tag">${product.tag}</span>
-        <span>${product.icon}</span>
+    <article class="product-card">
+      <div class="product-image">
+        <img
+          src="${escapeHTML(product.image)}"
+          alt="${escapeHTML(product.name)}"
+          loading="lazy"
+          onerror="this.onerror=null;this.src='https://placehold.co/600x500/f1f3f8/101b35?text=365+GRAMS';"
+        >
+        <span class="product-badge">${escapeHTML(product.badge || "DISCOVER")}</span>
       </div>
+
       <div class="product-info">
-        <div class="product-category">${product.category} · Demo listing</div>
-        <h3>${product.name}</h3>
-        <div class="price">${naira(product.price)}</div>
-        <div class="rating">★ ${product.rating} · Sample rating</div>
-        <button class="add-button" data-add="${product.id}">
-          ＋ Add to cart
-        </button>
+        <div class="product-category">${escapeHTML(product.category)}</div>
+        <h3>${escapeHTML(product.name)}</h3>
+        <div class="product-price">${formatPrice(product.price)}</div>
+        <div class="product-meta">Sold by ${escapeHTML(product.seller || "Marketplace Seller")}</div>
+
+        <div class="product-footer">
+          <button class="buy-btn" data-add-cart="${escapeHTML(product.id)}">
+            Add to Cart
+          </button>
+          <button class="heart-btn" aria-label="Save product"
+            data-favourite="${escapeHTML(product.id)}">♡</button>
+        </div>
       </div>
     </article>
   `).join("");
+
+  empty.style.display = filtered.length ? "none" : "block";
+
+  $("#productsHeading").textContent = activeCategory
+    ? activeCategory + " Products"
+    : activeQuery
+      ? "Search Results"
+      : "Trending on 365 GRAMS ✨";
 }
 
-function renderCart() {
-  const items = Object.entries(cart)
-    .filter(([, quantity]) => quantity > 0);
+function clearSearch() {
+  activeQuery = "";
+  activeCategory = "";
+  $("#searchInput").value = "";
+  renderProducts();
+  $("#productsHeading").textContent = "Trending on 365 GRAMS ✨";
+  $("#products").scrollIntoView({ behavior: "smooth" });
+}
 
-  const count = items.reduce(
-    (sum, [, quantity]) => sum + quantity, 0
-  );
+$("#searchForm").addEventListener("submit", event => {
+  event.preventDefault();
+  activeQuery = $("#searchInput").value.trim().toLowerCase();
+  activeCategory = "";
+  renderProducts();
+  $("#products").scrollIntoView({ behavior: "smooth" });
+});
 
-  const total = items.reduce((sum, [id, quantity]) => {
-    const product = products.find(p => p.id === Number(id));
-    return sum + product.price * quantity;
-  }, 0);
+$("#searchInput").addEventListener("input", event => {
+  activeQuery = event.target.value.trim().toLowerCase();
+  activeCategory = "";
+  renderProducts();
+});
 
-  document.getElementById("cartCount").textContent = count;
-  document.getElementById("cartTotal").textContent = naira(total);
+document.querySelectorAll(".category").forEach(button => {
+  button.addEventListener("click", () => {
+    activeCategory = button.dataset.category;
+    activeQuery = "";
+    $("#searchInput").value = "";
+    renderProducts();
+    $("#products").scrollIntoView({ behavior: "smooth" });
+  });
+});
 
-  const container = document.getElementById("cartItems");
+$("#productGrid").addEventListener("click", event => {
+  const cartButton = event.target.closest("[data-add-cart]");
+  const favouriteButton = event.target.closest("[data-favourite]");
 
-  if (!items.length) {
-    container.innerHTML =
-      '<p>Your cart is empty. Explore our demo products to get started.</p>';
+  if (cartButton) {
+    const product = products.find(p => p.id === cartButton.dataset.addCart);
+
+    if (product) {
+      cart.push(product);
+      $("#cartCount").textContent = cart.length;
+      showNotice(product.name + " added to your demo cart.");
+    }
+  }
+
+  if (favouriteButton) {
+    favouriteButton.classList.toggle("active");
+    favouriteButton.textContent =
+      favouriteButton.classList.contains("active") ? "♥" : "♡";
+  }
+});
+
+$("#cartButton").addEventListener("click", () => {
+  if (!cart.length) {
+    showNotice("Your demo cart is empty. Add a product to begin.");
     return;
   }
 
-  container.innerHTML = items.map(([id, quantity]) => {
-    const product = products.find(p => p.id === Number(id));
+  const total = cart.reduce((sum, product) => sum + Number(product.price), 0);
 
-    return `
-      <div class="cart-line">
-        <div>
-          <strong>${product.icon} ${product.name}</strong>
-          <p>${naira(product.price)} × ${quantity}</p>
-          <button data-remove="${id}">Remove one</button>
-        </div>
-        <strong>${naira(product.price * quantity)}</strong>
-      </div>
-    `;
-  }).join("");
+  showNotice(
+    cart.length + " item(s) in demo cart. Total: " + formatPrice(total) +
+    ". Checkout is not connected yet."
+  );
+});
+
+$("#accountButton").addEventListener("click", () => {
+  $("#seller").scrollIntoView({ behavior: "smooth" });
+  showNotice("Customer login will be added when we connect the backend.");
+});
+
+function serviceSearch(service) {
+  showNotice(service + " directory is a demo. Service-provider profiles are not connected yet.");
 }
 
-document.getElementById("productGrid").addEventListener("click", event => {
-  const button = event.target.closest("[data-add]");
-  if (!button) return;
+function goToSeller() {
+  $("#seller").scrollIntoView({ behavior: "smooth" });
+}
 
-  const id = Number(button.dataset.add);
-  cart[id] = (cart[id] || 0) + 1;
+function updateSellerInterface() {
+  const locked = $("#sellerLocked");
+  const inputs = $("#productForm").querySelectorAll("input, select, textarea, button");
 
-  renderCart();
+  if (sellerProfile) {
+    locked.innerHTML =
+      "✅ Demo seller profile: <strong>" +
+      escapeHTML(sellerProfile.shopName) +
+      "</strong>. You can now add products in this browser.";
 
-  button.textContent = "✓ Added!";
-  setTimeout(() => {
-    button.textContent = "＋ Add to cart";
-  }, 900);
-});
+    inputs.forEach(input => input.disabled = false);
 
-document.getElementById("cartItems").addEventListener("click", event => {
-  const button = event.target.closest("[data-remove]");
-  if (!button) return;
+    $("#sellerName").value = sellerProfile.name || "";
+    $("#shopName").value = sellerProfile.shopName || "";
+    $("#sellerEmail").value = sellerProfile.email || "";
+    $("#sellerPhone").value = sellerProfile.phone || "";
+    $("#sellerLocation").value = sellerProfile.location || "";
+    $("#sellerType").value = sellerProfile.type || "";
+  } else {
+    locked.textContent =
+      "🔒 Complete seller registration first to unlock product uploads in this demo.";
 
-  const id = Number(button.dataset.remove);
-  cart[id] = (cart[id] || 0) - 1;
+    inputs.forEach(input => input.disabled = true);
+  }
+}
 
-  if (cart[id] <= 0) delete cart[id];
-
-  renderCart();
-});
-
-document.getElementById("searchForm").addEventListener("submit", event => {
+$("#sellerForm").addEventListener("submit", event => {
   event.preventDefault();
-  activeSearch = document.getElementById("searchInput").value.trim();
-  activeCategory = "";
-  renderProducts();
-  document.getElementById("products").scrollIntoView();
-});
 
-document.getElementById("showAll").addEventListener("click", () => {
-  activeCategory = "";
-  activeSearch = "";
-  document.getElementById("searchInput").value = "";
-  renderProducts();
-});
+  sellerProfile = {
+    name: $("#sellerName").value.trim(),
+    shopName: $("#shopName").value.trim(),
+    email: $("#sellerEmail").value.trim(),
+    phone: $("#sellerPhone").value.trim(),
+    location: $("#sellerLocation").value.trim(),
+    type: $("#sellerType").value
+  };
 
-document.querySelectorAll("[data-category]").forEach(link => {
-  link.addEventListener("click", () => {
-    activeCategory = link.dataset.category;
-    activeSearch = "";
-    document.getElementById("searchInput").value = "";
-    renderProducts();
-  });
-});
+  try {
+    localStorage.setItem("365grams_seller", JSON.stringify(sellerProfile));
 
-document.getElementById("openCart").addEventListener("click", () => {
-  renderCart();
-  document.getElementById("cartModal").classList.add("open");
-});
+    $("#sellerStatus").textContent =
+      "Success! Your demo seller profile has been saved in this browser. " +
+      "You can now upload product listings. This is not an online account.";
 
-document.getElementById("closeCart").addEventListener("click", () => {
-  document.getElementById("cartModal").classList.remove("open");
-});
+    $("#sellerStatus").classList.add("show");
 
-document.getElementById("cartModal").addEventListener("click", event => {
-  if (event.target.id === "cartModal") {
-    event.currentTarget.classList.remove("open");
+    updateSellerInterface();
+    showNotice("Demo seller profile created successfully.");
+  } catch (error) {
+    showNotice("Could not save the profile in this browser.");
   }
 });
 
-document.getElementById("checkoutButton").addEventListener("click", () => {
-  alert("Online checkout is not connected yet. We'll add secure payments in a later stage.");
+$("#productImage").addEventListener("change", event => {
+  const file = event.target.files && event.target.files[0];
+
+  selectedImage = "";
+  $("#imagePreview").classList.remove("show");
+
+  if (!file) return;
+
+  if (!file.type.startsWith("image/")) {
+    showNotice("Please choose an image file.");
+    event.target.value = "";
+    return;
+  }
+
+  if (file.size > 2 * 1024 * 1024) {
+    showNotice("Please choose an image smaller than 2 MB for this demo.");
+    event.target.value = "";
+    return;
+  }
+
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    selectedImage = reader.result;
+    $("#imagePreview").src = selectedImage;
+    $("#imagePreview").classList.add("show");
+  };
+
+  reader.onerror = () => {
+    showNotice("Could not read that image. Please try another.");
+  };
+
+  reader.readAsDataURL(file);
 });
 
-document.querySelectorAll('a[href="#seller"]').forEach(link => {
-  link.addEventListener("click", event => {
-    event.preventDefault();
-    document.getElementById("sellerModal").classList.add("open");
-  });
-});
-
-document.getElementById("closeSeller").addEventListener("click", () => {
-  document.getElementById("sellerModal").classList.remove("open");
-});
-
-document.getElementById("sellerForm").addEventListener("submit", event => {
+$("#productForm").addEventListener("submit", event => {
   event.preventDefault();
 
-  if (!document.getElementById("sellerName").value.trim()) return;
+  if (!sellerProfile) {
+    showNotice("Please create your seller profile first.");
+    return;
+  }
 
-  document.getElementById("sellerMessage").textContent =
-    "Thank you for your interest! This is a demo form; your application has not been sent or saved.";
+  if (!selectedImage) {
+    showNotice("Please select a product image.");
+    return;
+  }
+
+  const newProduct = {
+    id: "seller-" + Date.now(),
+    name: $("#productName").value.trim(),
+    category: $("#productCategory").value,
+    price: Number($("#productPrice").value),
+    description: $("#productDescription").value.trim(),
+    image: selectedImage,
+    badge: "NEW LISTING",
+    seller: sellerProfile.shopName
+  };
+
+  products.unshift(newProduct);
+
+  try {
+    saveProducts();
+
+    $("#productStatus").textContent =
+      "Product added! It is now visible in this browser's marketplace preview. " +
+      "It has not been published to a shared online marketplace.";
+
+    $("#productStatus").classList.add("show");
+
+    $("#productForm").reset();
+    selectedImage = "";
+    $("#imagePreview").src = "";
+    $("#imagePreview").classList.remove("show");
+
+    renderProducts();
+
+    showNotice("Your product has been added to the demo marketplace.");
+
+    $("#products").scrollIntoView({ behavior: "smooth" });
+  } catch (error) {
+    products = products.filter(p => p.id !== newProduct.id);
+    showNotice("Could not add product. Try a smaller image.");
+  }
 });
 
-document.getElementById("newsletterForm").addEventListener("submit", event => {
-  event.preventDefault();
+function loadSeller() {
+  updateSellerInterface();
 
-  document.getElementById("newsletterMessage").textContent =
-    "Thank you for your interest! Email subscriptions will be connected later.";
-});
+  if (sellerProfile) {
+    $("#sellerStatus").textContent =
+      "Your demo seller profile is saved in this browser.";
+    $("#sellerStatus").classList.add("show");
+  }
+}
 
-document.getElementById("year").textContent = new Date().getFullYear();
+$("#year").textContent = new Date().getFullYear();
 
 renderProducts();
-renderCart();
+loadSeller();
 </script>
 
 </body>
